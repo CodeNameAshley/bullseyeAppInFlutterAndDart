@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const BullEyeApp());
+  runApp(const BullsEyeApp());
 }
 
-class BullEyeApp extends StatelessWidget {
-  const BullEyeApp({Key? key}) : super(key: key);
+class BullsEyeApp extends StatelessWidget {
+  const BullsEyeApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
