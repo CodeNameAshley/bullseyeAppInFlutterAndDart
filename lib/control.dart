@@ -19,16 +19,18 @@ class _ControlState extends State<Control> {
           padding: EdgeInsets.all(8.0),
           child: Text('1'),
         ),
-        Slider(
-          value: _currentValue,
-          onChanged: (newValue) {
-            setState(() {
-              _currentValue = newValue;
-              print(_currentValue);
-            });
-          },
-          min: 1.0,
-          max: 100.0,
+        Expanded(
+          child: Slider(
+            value: _currentValue,
+            onChanged: (newValue) {
+              setState(() {
+                _currentValue = newValue;
+                print(_currentValue);
+              });
+            },
+            min: 1.0,
+            max: 100.0,
+          ),
         ),
         const Padding(
           padding: EdgeInsets.all(8.0),
