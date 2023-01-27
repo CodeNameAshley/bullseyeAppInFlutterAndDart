@@ -15,7 +15,10 @@ class _ControlState extends State<Control> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        const Text('1'),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text('1'),
+        ),
         Slider(
           value: _currentValue,
           onChanged: (newValue) {
@@ -27,7 +30,10 @@ class _ControlState extends State<Control> {
           min: 1.0,
           max: 100.0,
         ),
-        const Text('100'),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text('100'),
+        ),
       ],
     );
   }

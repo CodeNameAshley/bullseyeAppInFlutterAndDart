@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'control.dart';
+import 'score.dart';
 
 void main() {
   runApp(const BullsEyeApp());
@@ -53,23 +54,7 @@ class _GamePageState extends State<GamePage> {
               style: TextStyle(color: Colors.blue),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              TextButton(
-                onPressed: () {},
-                child: const Text('Start Over'),
-              ),
-              const Text('Score: '),
-              const Text('9999'),
-              const Text(' Round: '),
-              const Text('999'),
-              TextButton(
-                onPressed: () {},
-                child: const Text('Info'),
-              ),
-            ],
-          )
+          const Score(totalScore: 0, round: 1)
         ],
       ),
     ));
