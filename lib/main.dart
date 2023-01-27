@@ -1,7 +1,7 @@
 import 'package:bullseye/prompt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'prompt.dart';
+
 import 'control.dart';
 
 void main() {
@@ -52,6 +52,23 @@ class _GamePageState extends State<GamePage> {
               'Hit Me!',
               style: TextStyle(color: Colors.blue),
             ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextButton(
+                onPressed: () {},
+                child: const Text('Start Over'),
+              ),
+              const Text('Score: '),
+              const Text('9999'),
+              const Text(' Round: '),
+              const Text('999'),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Info'),
+              ),
+            ],
           )
         ],
       ),
