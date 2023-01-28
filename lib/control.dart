@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'game_model.dart';
 
 class Control extends StatefulWidget {
-  const Control({Key? key}) : super(key: key);
+  const Control({Key? key, required this.model}) : super(key: key);
+
+  final GameModel model;
 
   @override
   State<Control> createState() => _ControlState();
 }
 
 class _ControlState extends State<Control> {
-  var _currentValue = 50.0;
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,11 +22,10 @@ class _ControlState extends State<Control> {
         ),
         Expanded(
           child: Slider(
-            value: _currentValue,
+            value: widget.model.current.toDouble(),
             onChanged: (newValue) {
               setState(() {
-                _currentValue = newValue;
-                print(_currentValue);
+                widget.model.current = newValue.toInt();
               });
             },
             min: 1.0,
