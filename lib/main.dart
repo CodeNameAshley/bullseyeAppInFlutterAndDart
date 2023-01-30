@@ -43,9 +43,8 @@ class _GamePageState extends State<GamePage> {
     _model = GameModel(Random().nextInt(100 + 1));
   }
 
-
-
   bool _alertIsVisible = false;
+  int accumulatedRound = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +59,7 @@ class _GamePageState extends State<GamePage> {
             onPressed: () {
               _alertIsVisible = true;
               _showAlert(context);
+              accumulatedRound = accumulatedPoints + 1;
             },
             child: const Text(
               'Hit Me!',
@@ -72,8 +72,19 @@ class _GamePageState extends State<GamePage> {
     ));
   }
 
-  int _pointsForCurrentRound() {
-    return 999;
+  int accumulatedPoints = 0;
+
+  int _pointsForCurrentRound(int currentValue) {
+    if (currentValue > _model.target) {
+      accumulatedPoints = accumulatedPoints + (currentValue - _model.target);
+      return currentValue - _model.target;
+    } else if (_model.target > currentValue) {
+      accumulatedPoints = accumulatedPoints + (_model.target - currentValue);
+      return _model.target - currentValue;
+    } else {
+      accumulatedPoints = accumulatedPoints + 0;
+      return 0;
+    }
   }
 
   void _showAlert(BuildContext context) {
@@ -82,6 +93,7 @@ class _GamePageState extends State<GamePage> {
         Navigator.of(context).pop();
         _alertIsVisible = false;
         print('Awesome pressed! $_alertIsVisible');
+        Score(totalScore: accumulatedPoints, round: accumulatedRound);
       },
       child: const Text('Awesome!'),
     );
@@ -91,7 +103,7 @@ class _GamePageState extends State<GamePage> {
         return AlertDialog(
           title: const Text('Hello there!'),
           content: Text('The slider\'s value is ${_model.current}.\n'
-          'You scored ${_pointsForCurrentRound()} points this round.'),
+          'You scored ${_pointsForCurrentRound(_model.current)} points this round.'),
           actions: [
             okButton,
           ],
