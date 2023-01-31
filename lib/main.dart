@@ -95,7 +95,6 @@ class _GamePageState extends State<GamePage> {
 
   int _differentAmount() => (_model.target - _model.current).abs();
 
-
   void _showAlert(BuildContext context) {
     var okButton = TextButton(
       onPressed: () {
